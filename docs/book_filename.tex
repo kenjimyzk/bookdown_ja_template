@@ -29,6 +29,8 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -84,9 +86,6 @@
   \postdate{\par}
   \date{2016-12-30}
 
-%lualatexjaを使うために,ヘッダーとして読み込ませるtexファイル
-%必要なヘッダーはここに記述しておくと楽です
-%個人的な趣味でIPAフォントを利用しています
 \usepackage{xltxtra}
 \usepackage{zxjatype}
 \usepackage[ipa]{zxjafont}
@@ -107,7 +106,7 @@
 
 以下は説明用の文章を貼り付けてます。\textbf{実際には削除してください}。
 
-不明な点があれば,Twitterの{[}@kazutan{]}(\url{https://twitter.com/kazutan})
+不明な点があれば,Twitterの\citep{kazutan}(\url{https://twitter.com/kazutan})
 もしくはこのリポジトリのissue,あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
 
 \section{書籍ファイルの作成方法}
@@ -170,41 +169,20 @@ Bookから選択してください。もしBuildタブがRStudioで表示され�
 \section{session info}\label{session-info}
 
 \begin{verbatim}
-Session info -----------------------------------------------------------------------------------
- setting  value                       
- version  R version 3.3.2 (2016-10-31)
- system   x86_64, linux-gnu           
- ui       RStudio (1.0.44)            
- language (EN)                        
- collate  en_US.UTF-8                 
- tz       <NA>                        
- date     2016-11-12                  
+R version 3.3.2 (2016-10-31)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: OS X El Capitan 10.11.6
 
-Packages ---------------------------------------------------------------------------------------
- package    * version  date       source                            
- backports    1.0.4    2016-10-24 cran (@1.0.4)                     
- bookdown     0.1.18   2016-11-08 Github (rstudio/bookdown@601437d) 
- devtools     1.12.0   2016-06-24 CRAN (R 3.3.1)                    
- digest       0.6.10   2016-08-02 cran (@0.6.10)                    
- evaluate     0.10     2016-10-11 CRAN (R 3.3.1)                    
- htmltools    0.3.5    2016-03-21 CRAN (R 3.3.1)                    
- httpuv       1.3.3    2015-08-04 CRAN (R 3.2.3)                    
- knitr        1.15     2016-11-09 CRAN (R 3.3.2)                    
- magrittr     1.5      2014-11-22 CRAN (R 3.2.3)                    
- memoise      1.0.0    2016-01-29 CRAN (R 3.2.3)                    
- mime         0.5      2016-07-07 CRAN (R 3.3.1)                    
- miniUI       0.1.1    2016-01-15 cran (@0.1.1)                     
- R6           2.2.0    2016-10-05 CRAN (R 3.3.1)                    
- Rcpp         0.12.7   2016-09-05 CRAN (R 3.3.1)                    
- rmarkdown    1.1.9014 2016-11-08 Github (rstudio/rmarkdown@91c7de2)
- rprojroot    1.1      2016-10-29 cran (@1.1)                       
- rstudioapi   0.6      2016-06-27 CRAN (R 3.3.1)                    
- shiny        0.14.2   2016-11-01 cran (@0.14.2)                    
- stringi      1.1.2    2016-10-01 CRAN (R 3.3.1)                    
- stringr      1.1.0    2016-08-19 CRAN (R 3.3.2)                    
- withr        1.0.2    2016-06-20 CRAN (R 3.3.1)                    
- xtable       1.8-2    2016-02-05 CRAN (R 3.2.3)                    
- yaml         2.1.13   2014-06-12 CRAN (R 3.2.3)     
+locale:
+[1] ja_JP.UTF-8/ja_JP.UTF-8/ja_JP.UTF-8/C/ja_JP.UTF-8/ja_JP.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] backports_1.0.4 bookdown_0.3    magrittr_1.5    rprojroot_1.1   htmltools_0.3.5
+ [6] tools_3.3.2     yaml_2.1.14     Rcpp_0.12.8     stringi_1.1.2   rmarkdown_1.3  
+[11] knitr_1.15.1    stringr_1.1.0   digest_0.6.10   evaluate_0.10  
 \end{verbatim}
 
 \chapter{章のタイトルをここに入力}
@@ -212,6 +190,8 @@ Packages -----------------------------------------------------------------------
 進捗どうですか?
 
 適当に編集してください。
+
+R Markdown and \textbf{knitr} \citep{xie2015}.
 
 \chapter{章のタイトル2}\label{2}
 
@@ -224,6 +204,8 @@ Packages -----------------------------------------------------------------------
 \section{節見出し2}\label{2}
 
 ふがふが
+
+\bibliography{book.bib}
 
 
 \end{document}

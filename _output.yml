@@ -1,7 +1,7 @@
 #一番上に指定している形式が,Knitした時に参照されます
 #2番目以降はあまり順番を気にしなくて大丈夫です
-# epub関連の設定
-bookdown::epub_book: default
+
+
 # gitbook形式の設定
 bookdown::gitbook:
   css: style.css
@@ -27,4 +27,7 @@ bookdown::pdf_book:
   includes:
     in_header: preamble.tex
   latex_engine: xelatex
+  citation_package: natbib
   keep_tex: yes
+# epub関連の設定
+# bookdown::epub_book:

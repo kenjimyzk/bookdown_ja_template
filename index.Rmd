@@ -5,6 +5,9 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
+bibliography: [book.bib, testbib.bib]
+biblio-style: authoryear-jst
+link-citations: yes
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
@@ -17,7 +20,7 @@ description: "This is a description. Please wrote a abstract this contents. "
 
 以下は説明用の文章を貼り付けてます。**実際には削除してください**。
 
-不明な点があれば,Twitterの[@kazutan](https://twitter.com/kazutan) もしくはこのリポジトリのissue,あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
+不明な点があれば,Twitterの(https://twitter.com/kazutan) もしくはこのリポジトリのissue,あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
 
 ## 書籍ファイルの作成方法
 
