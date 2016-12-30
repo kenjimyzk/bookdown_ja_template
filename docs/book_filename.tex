@@ -1,0 +1,229 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={book\_title},
+            pdfauthor={author\_name},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{book\_title}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{author\_name}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2016-12-30}
+
+%lualatexjaを使うために,ヘッダーとして読み込ませるtexファイル
+%必要なヘッダーはここに記述しておくと楽です
+%個人的な趣味でIPAフォントを利用しています
+\usepackage{xltxtra}
+\usepackage{zxjatype}
+\usepackage[ipa]{zxjafont}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{book\_title}\label{book_title}
+
+このRmdファイルを
+\texttt{bookdown::render\_book("index.Rmd")}すると,自動的に製本(?)します。
+
+なお(私の考えうる限りで)最小構成で作ってます。実際に作ろうと思うなら,\href{https://bookdown.org/yihui/bookdown/}{本家ドキュメント}を参照してください。
+
+以下は説明用の文章を貼り付けてます。\textbf{実際には削除してください}。
+
+不明な点があれば,Twitterの{[}@kazutan{]}(\url{https://twitter.com/kazutan})
+もしくはこのリポジトリのissue,あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
+
+\section{書籍ファイルの作成方法}
+
+\subsection{必要なパッケージ,環境など}
+
+Knitr, rmarkdown,
+bookdownのパッケージがデータのレンダリングに必要です。またpandocの新しいのが必要で,面倒でしたらRStudioの最新版をインストールしてください(内包してます)。
+ggplot2逆引き記事内にて使用するパッケージも必要となります。おそらくggplot2パッケージぐらいで大丈夫だと思いますが,面倒でしたらtidyverseパッケージを導入してください。これをインストールするとHadleyverseなパッケージ群が自動的にインストールされます。
+もしpdf
+bookを作りたいのであれば,マシンにtex環境が必要です。日本語のフォントにIPAフォントを指定していますので,以下からダウンロードしてください。
+
+\url{http://ipafont.ipa.go.jp/}
+
+また,bookdownはutf-8しか受け付けません。そのためwindowsではうまく動かないかもしれません(未検証)。もし何かありましたらissueなりkazutan
+までご連絡ください。
+
+私の作業環境(動作確認環境)は,最後にまとめて表示しています。
+
+\subsection{Download}\label{download}
+
+git cloneして持ってくるか,右側のDownload Zipで持ってきてください:
+
+\begin{verbatim}
+$ git clone git@github.com:kazutan/bookdown_ja-template.git
+\end{verbatim}
+
+\subsection{レンダリング(本のファイル作成)}
+
+\subsubsection{種類}
+
+\begin{itemize}
+\item
+  gitbook形式: 以下のコードを実行
+
+\begin{verbatim}
+bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook")
+\end{verbatim}
+\item
+  epub形式: 以下のコードを実行
+
+\begin{verbatim}
+bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book")
+\end{verbatim}
+\item
+  pdf形式: 以下のコードを実行
+
+\begin{verbatim}
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
+\end{verbatim}
+\end{itemize}
+
+RStudioを利用しているなら,BuildパネルでBuild
+Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。
+
+\subsection{生成物の場所}
+
+生成物は,\texttt{\_book}ディレクトリに置かれるように設定してます。\texttt{.epub}と\texttt{.pdf}は単独ファイルで,それ以外はgitbook形式のファイルとなります。
+
+\section{session info}\label{session-info}
+
+\begin{verbatim}
+Session info -----------------------------------------------------------------------------------
+ setting  value                       
+ version  R version 3.3.2 (2016-10-31)
+ system   x86_64, linux-gnu           
+ ui       RStudio (1.0.44)            
+ language (EN)                        
+ collate  en_US.UTF-8                 
+ tz       <NA>                        
+ date     2016-11-12                  
+
+Packages ---------------------------------------------------------------------------------------
+ package    * version  date       source                            
+ backports    1.0.4    2016-10-24 cran (@1.0.4)                     
+ bookdown     0.1.18   2016-11-08 Github (rstudio/bookdown@601437d) 
+ devtools     1.12.0   2016-06-24 CRAN (R 3.3.1)                    
+ digest       0.6.10   2016-08-02 cran (@0.6.10)                    
+ evaluate     0.10     2016-10-11 CRAN (R 3.3.1)                    
+ htmltools    0.3.5    2016-03-21 CRAN (R 3.3.1)                    
+ httpuv       1.3.3    2015-08-04 CRAN (R 3.2.3)                    
+ knitr        1.15     2016-11-09 CRAN (R 3.3.2)                    
+ magrittr     1.5      2014-11-22 CRAN (R 3.2.3)                    
+ memoise      1.0.0    2016-01-29 CRAN (R 3.2.3)                    
+ mime         0.5      2016-07-07 CRAN (R 3.3.1)                    
+ miniUI       0.1.1    2016-01-15 cran (@0.1.1)                     
+ R6           2.2.0    2016-10-05 CRAN (R 3.3.1)                    
+ Rcpp         0.12.7   2016-09-05 CRAN (R 3.3.1)                    
+ rmarkdown    1.1.9014 2016-11-08 Github (rstudio/rmarkdown@91c7de2)
+ rprojroot    1.1      2016-10-29 cran (@1.1)                       
+ rstudioapi   0.6      2016-06-27 CRAN (R 3.3.1)                    
+ shiny        0.14.2   2016-11-01 cran (@0.14.2)                    
+ stringi      1.1.2    2016-10-01 CRAN (R 3.3.1)                    
+ stringr      1.1.0    2016-08-19 CRAN (R 3.3.2)                    
+ withr        1.0.2    2016-06-20 CRAN (R 3.3.1)                    
+ xtable       1.8-2    2016-02-05 CRAN (R 3.2.3)                    
+ yaml         2.1.13   2014-06-12 CRAN (R 3.2.3)     
+\end{verbatim}
+
+\chapter{章のタイトルをここに入力}
+
+進捗どうですか?
+
+適当に編集してください。
+
+\chapter{章のタイトル2}\label{2}
+
+進捗どうですか?
+
+\section{節見出し1}\label{1}
+
+ほげほげ
+
+\section{節見出し2}\label{2}
+
+ふがふが
+
+
+\end{document}
