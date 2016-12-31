@@ -1,7 +1,5 @@
 #一番上に指定している形式が,Knitした時に参照されます
 #2番目以降はあまり順番を気にしなくて大丈夫です
-
-
 # gitbook形式の設定
 bookdown::gitbook:
   css: style.css

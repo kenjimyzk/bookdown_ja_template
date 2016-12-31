@@ -5,7 +5,7 @@ This is a bookdown minimal template for Japanese language. This based [rstudio/b
 ## modified points
 
 - set "pandoc args" for Japanese heading.
-- set "latex_engine: lualatex".
+- set "latex_engine: xelatex".
 - set "output_dir" to "docs".
 - set font "IPAGothic" into "pdf_book".
 
@@ -15,4 +15,4 @@ If you want use multibyte text on ggplot2 by "bookdown::pdf_book()", you might s
 
 ## contact
 
-Please mention to [@kazutan](https://twitter.com/kazutan) or issue the this repository.
+Please mention to [`@kazutan`](https://twitter.com/kazutan) or issue the this repository.

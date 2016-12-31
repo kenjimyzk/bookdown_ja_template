@@ -6,6 +6,11 @@
 
 ほげほげ
 
+```{r}
+plot(dist~speed, data=cars)
+```
+
+
 ## 節見出し2
 
 ふがふが
