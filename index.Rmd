@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [book.bib, open-git.bib]
 biblio-style: jeconunicode
 link-citations: yes
-# csl: mlz-sist02.csl
+csl: miyazakikenji.csl
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
