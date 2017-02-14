@@ -3,7 +3,7 @@ book_filename: "book_filename"
 #チャプターの枕詞
 # chapter_name: "chapter: "
 #出力先の指定。docsに指定しています
-output_dir: docs
+output_dir: _bookdown_files
 #使用するRmdファイル群。指定しなければすべてのRmdを持ってきます
 rmd_file: ["index.Rmd", "01-title1.Rmd", "02-title2.Rmd", "06-references.Rmd"]
 # 詳しくは公式ドキュメントを参照してください

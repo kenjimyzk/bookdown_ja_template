@@ -4,7 +4,9 @@ author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: book
+documentclass: bxjsarticle
+classoption: xelatex,ja=standard 
+geometry: no
 bibliography: [book.bib, open-git.bib]
 biblio-style: jeconunicode
 link-citations: yes
