@@ -14,7 +14,7 @@
       <name>Eriko Amano</name>
       <uri>http://www.mendeley.com/profiles/eriko-amano/</uri>
     </contributor>
-    <category citation-format="numeric"/>
+    <category citation-format="author-date"/>
     <updated>2015-09-04T23:42:53.762488</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
@@ -130,7 +130,7 @@
         <choose>
           <if locale="ja zh kr">
             <names variable="author">
-              <name delimiter=", " delimiter-precedes-et-al="never" delimiter-precedes-last="never" name-as-sort-order="all"/>
+              <name delimiter="・" delimiter-precedes-et-al="never" delimiter-precedes-last="never" name-as-sort-order="all" sort-separator=""/>
               <label form="short"/>
               <substitute>
                 <names variable="editor"/>
@@ -349,7 +349,7 @@
           <text macro="title"/>
         </group>
       </else>
-    </choose>              
+    </choose>
   </macro>
   <macro name="institution">
     <names variable="authority">

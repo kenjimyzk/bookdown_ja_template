@@ -4,7 +4,7 @@ author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-documentclass: bxjsarticle
+documentclass: bxjsbook
 classoption: xelatex,ja=standard 
 geometry: no
 bibliography: [book.bib, open-git.bib]
@@ -14,7 +14,6 @@ csl: miyazakikenji.csl
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
-
 # book_title
 
 このRmdファイルを `bookdown::render_book("index.Rmd")`すると,自動的に製本(?)します。
