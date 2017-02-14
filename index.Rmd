@@ -3,10 +3,12 @@ title: "book_title"
 author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
-documentclass: book
-# classoption: ja=standard, xelatex
-# geometry: no
+output: 
+  bookdown::pdf_book:
+    pandoc_args: --chapters
+documentclass: bxjsbook
+classoption: ja=standard, xelatex
+geometry: no
 bibliography: [book.bib, open-git.bib]
 biblio-style: jeconunicode
 link-citations: yes
@@ -68,21 +70,6 @@ RStudioを利用しているなら,BuildパネルでBuild Bookから選択して
 生成物は,`_book`ディレクトリに置かれるように設定してます。`.epub`と`.pdf`は単独ファイルで,それ以外はgitbook形式のファイルとなります。
 
 ## session info
-
+```{r}
+sessionInfo()
 ```
-R version 3.3.2 (2016-10-31)
-Platform: x86_64-apple-darwin13.4.0 (64-bit)
-Running under: OS X El Capitan 10.11.6
-
-locale:
-[1] ja_JP.UTF-8/ja_JP.UTF-8/ja_JP.UTF-8/C/ja_JP.UTF-8/ja_JP.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-loaded via a namespace (and not attached):
- [1] backports_1.0.4 bookdown_0.3    magrittr_1.5    rprojroot_1.1   htmltools_0.3.5
- [6] tools_3.3.2     yaml_2.1.14     Rcpp_0.12.8     stringi_1.1.2   rmarkdown_1.3  
-[11] knitr_1.15.1    stringr_1.1.0   digest_0.6.10   evaluate_0.10  
-```
-
