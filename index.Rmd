@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::pdf_book:
-    pandoc_args: --chapters
+    pandoc_args: --top-level-division=chapter
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
