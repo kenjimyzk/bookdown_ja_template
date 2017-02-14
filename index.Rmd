@@ -8,11 +8,10 @@ documentclass: book
 bibliography: [book.bib, open-git.bib]
 biblio-style: jeconunicode
 link-citations: yes
-csl: miyazakikenji.csl
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
-# book_title
+# book_title {-}
 
 このRmdファイルを `bookdown::render_book("index.Rmd")`すると,自動的に製本(?)します。
 

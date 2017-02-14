@@ -4,6 +4,7 @@
 bookdown::gitbook:
   css: style.css
   split_by: "rmd"
+  dev: "png"
   config:
     toc:
 # サイドバーの一番上の要素になります
@@ -30,4 +31,4 @@ bookdown::pdf_book:
   dev: "cairo_pdf"
   citation_package: natbib
 # epub関連の設定
-# bookdown::epub_book:
+#bookdown::epub_book:
