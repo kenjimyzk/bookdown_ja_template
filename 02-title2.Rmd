@@ -1,5 +1,10 @@
 # 章のタイトル2
 
+```{r}
+library(tikzDevice)
+out_type <-knitr::opts_knit$get("rmarkdown.pandoc.to")
+```
+
 進捗どうですか?
 
 ## 節見出し1
@@ -7,9 +12,9 @@
 ほげほげ
 
 ```{r}
-plot(dist~speed, data=cars)
+  par(family="IPAGothic")
+  curve(dnorm(x),xlim=c(-3,3),main="正規分布")
 ```
-
 
 ## 節見出し2
 

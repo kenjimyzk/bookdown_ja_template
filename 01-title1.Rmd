@@ -4,10 +4,34 @@
 
 適当に編集してください。
 
-R Markdown and **knitr** [@xie2015].
+R Markdown and **knitr** [@xie2015; @lander__2015]
 
 @miya_ken_2015a
 
-@kawabe_2015
+```{r, echo=FALSE}
+library(knitr)
+out_type <- opts_knit$get("rmarkdown.pandoc.to")
+if (out_type == "latex") {
+  opts_chunk$set(dev = 'cairo_pdf')
+}  else {
+  opts_chunk$set(dev = 'png')
+}
+out_type
+```
 
-@lander__2015
+データ `cars` を用いて回帰分析\index{かいきぶんせき@回帰分析}を実行する. 
+```{r}
+fm0<-lm(dist~speed, data=cars) 
+fm1<-lm(dist~speed + I(speed^2), data=cars) 
+```
+
+結果は以下のとおりである.
+
+```{r, message=FALSE,echo=FALSE,results='asis'}
+library(stargazer)
+if (out_type == "latex") {
+  stargazer(fm0,fm1, header=FALSE, float=FALSE)
+} else {
+  stargazer(fm0, fm1, type="html")
+  }
+```
