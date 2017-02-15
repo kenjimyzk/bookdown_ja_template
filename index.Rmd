@@ -3,9 +3,8 @@ title: "book_title"
 author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: 
-  bookdown::pdf_book:
-    pandoc_args: --top-level-division=chapter
+output:
+  bookdown::gitbook_book
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
@@ -17,33 +16,70 @@ description: "This is a description. Please wrote a abstract this contents. "
 ---
 # book_title {-}
 
-このRmdファイルを `bookdown::render_book("index.Rmd")`すると,自動的に製本(?)します。
+これは https://github.com/kazutan/bookdown_ja_template/ をフォークしたものです.
+私が改変した文章の句点は半角ピリオドになっております.
 
-なお(私の考えうる限りで)最小構成で作ってます。実際に作ろうと思うなら,[本家ドキュメント](https://bookdown.org/yihui/bookdown/)を参照してください。
+違いは以下です:
+
++ lualatex でなく (宗教的理由で) xelatex にしている.
++ IPA font でなく IPAex font にしている
++ bxjsbook を使用していている
++ 日本語付きの図表の例を示している.
++ 日本語の索引と参考文献の例を示している.
+
 
 以下は説明用の文章を貼り付けてます。**実際には削除してください**。
 
-不明な点があれば,Twitterの`@kazutan`(https://twitter.com/kazutan) もしくはこのリポジトリのissue,あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
+不明な点があれば, もしくはこのリポジトリのissue, あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
 
 ## 書籍ファイルの作成方法
 
 ### 必要なパッケージ,環境など
 Knitr, rmarkdown, bookdownのパッケージがデータのレンダリングに必要です。またpandocの新しいのが必要で,面倒でしたらRStudioの最新版をインストールしてください(内包してます)。
+
 ggplot2逆引き記事内にて使用するパッケージも必要となります。おそらくggplot2パッケージぐらいで大丈夫だと思いますが,面倒でしたらtidyverseパッケージを導入してください。これをインストールするとHadleyverseなパッケージ群が自動的にインストールされます。
-もしpdf bookを作りたいのであれば,マシンにtex環境が必要です。日本語のフォントにIPAフォントを指定していますので,以下からダウンロードしてください。
+
+オリジナルと違い, pdf book を日本語できちんとpdf book を作りたいので, マシンにtex環境が不可欠です.
+
+https://texwiki.texjp.org/?TeX入手法
+
+にあるように色々なtex環境がありますが texlive が最適です.
+現在の最新版 2016 でないとスタイルファイル **bxjsbook** やユニコードに対応した索引作成ソフト **upmendex**  が使えません.
+
+bookdown は texlive で参考文献や索引を **latexmk** を通じて作成します.
+latexmk は texlive に同包していますが, 設定ファイル `.latexmkrc` をホームディレクトリに置く必要があります. わたしの設定ファイルは以下です:
+```
+$latex  = 'platex -kanji=utf8 -synctex=1';
+$bibtex = 'upbibtex -kanji-internal=uptex';
+$dvipdf  = 'dvipdfmx %O -o %D %S';
+$makeindex = 'upmendex %O -o %D %S';
+$pdf_previewer = 'open -a /Applications/Preview.app';
+$pdf_mode = 3;                  #  3 = create pdf file by dvipdf
+$pdf_update_method = 0;         #  0 =  auto update
+```
+`$latex` や `$dvipdf` は古いテフを使用している人とコミュニケートするための設定でここでは使っていません. また `$pdf_previewer` もここでは使いません.
+
+bibtex のスタイルファイルは 
+
+http://shirotakeda.org/ja/tex-ja/jecon-ja.html
+
+にある `jecon.bst` のユニコード版 `jecon_unicode.bst` を使います.
+ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております.
+
+日本語のフォントに埋め込み可能な IPAexフォントにしております. IPA フォントとの違いは欧米フォントがプロポーシャルになってることです. 以下からダウンロードしてください。
 
 http://ipafont.ipa.go.jp/
 
-また,bookdownはutf-8しか受け付けません。そのためwindowsではうまく動かないかもしれません(未検証)。もし何かありましたらissueなりkazutan までご連絡ください。
+また, bookdownはutf-8しか受け付けません。そのためwindowsではうまく動かないかもしれません(未検証)。はやく mac か linux に移行しましょう.
 
-私の作業環境(動作確認環境)は,最後にまとめて表示しています。
+私の作業環境(動作確認環境)は, 最後にまとめて表示しています。
 
 ### Download
 
-git cloneして持ってくるか,右側のDownload Zipで持ってきてください:
+git cloneして持ってくるか, 右側のDownload Zipで持ってきてください:
 
 ```
-$ git clone git@github.com:kazutan/bookdown_ja-template.git
+$ git clone git@github.com:kenjimyzk/bookdown_ja-template.git
 ```
 
 ### レンダリング(本のファイル作成)
@@ -67,9 +103,22 @@ RStudioを利用しているなら,BuildパネルでBuild Bookから選択して
 
 ### 生成物の場所
 
-生成物は,`_book`ディレクトリに置かれるように設定してます。`.epub`と`.pdf`は単独ファイルで,それ以外はgitbook形式のファイルとなります。
+生成物は,`docs`ディレクトリに置かれるように設定してます。`.epub`と`.pdf`は単独ファイルで,それ以外はgitbook形式のファイルとなります。
 
 ## session info
+私の作業環境(動作確認環境)です.
 ```{r}
 sessionInfo()
 ```
+
+## 今後やりたいこと
+html の参考文献について日本語でのスタイルが上手く表記されていません.
+jecon.bst のように和文文献と欧米文献を分類して, あいうえお順にしたいのですが, 現状ではできていません. csl について
+
++ http://docs.citationstyles.org/en/stable/specification.html
++ http://editor.citationstyles.org/visualEditor/
++ https://www.zotero.org/styles
+
+あたりで勉強して作りたいと思います.
+
+
