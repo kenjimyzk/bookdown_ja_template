@@ -8,9 +8,10 @@ output:
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
-bibliography: [book.bib, open-git.bib]
+bibliography: template.bib
 biblio-style: jeconunicode
 link-citations: yes
+# csl: miyazakikenji.csl
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
@@ -30,14 +31,14 @@ description: "This is a description. Please wrote a abstract this contents. "
 
 以下は説明用の文章を貼り付けてます。**実際には削除してください**。
 
-不明な点があれば, もしくはこのリポジトリのissue, あるいはr-wakalangのrmarkdownのチャンネルまでおねがいします。
+不明な点があれば, もしくはこのリポジトリのissue までおねがいします。
 
 ## 書籍ファイルの作成方法
 
 ### 必要なパッケージ,環境など
-Knitr, rmarkdown, bookdownのパッケージがデータのレンダリングに必要です。またpandocの新しいのが必要で,面倒でしたらRStudioの最新版をインストールしてください(内包してます)。
+Knitr, rmarkdown, bookdownのパッケージがデータのレンダリングに必要です。またpandocの新しいのが必要で, 面倒でしたらRStudioの最新版をインストールしてください (内包してます)。
 
-ggplot2逆引き記事内にて使用するパッケージも必要となります。おそらくggplot2パッケージぐらいで大丈夫だと思いますが,面倒でしたらtidyverseパッケージを導入してください。これをインストールするとHadleyverseなパッケージ群が自動的にインストールされます。
+ggplot2逆引き記事内にて使用するパッケージも必要となります。おそらくggplot2パッケージぐらいで大丈夫だと思いますが, 面倒でしたらtidyverseパッケージを導入してください。これをインストールするとHadleyverseなパッケージ群が自動的にインストールされます。
 
 オリジナルと違い, pdf book を日本語できちんとpdf book を作りたいので, マシンにtex環境が不可欠です.
 
@@ -64,19 +65,37 @@ bibtex のスタイルファイルは
 http://shirotakeda.org/ja/tex-ja/jecon-ja.html
 
 にある `jecon.bst` のユニコード版 `jecon_unicode.bst` を使います.
-ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております.
+ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております. なお少しだけ修正しております (Pull Request 中).
 
-日本語のフォントに埋め込み可能な IPAexフォントにしております. IPA フォントとの違いは欧米フォントがプロポーシャルになってることです. 以下からダウンロードしてください。
+日本語のフォントに埋め込み可能な IPAexフォントにしています. 
+IPA フォントとの違いは欧米フォントがプロポーシャルになってることです. 以下からダウンロードしてください。
 
 http://ipafont.ipa.go.jp/
 
-また, bookdownはutf-8しか受け付けません。そのためwindowsではうまく動かないかもしれません(未検証)。はやく mac か linux に移行しましょう.
+日本語フォントを含めた各種のフォントを作図に用いると警告が出る場合があります.
+警告無しで使用するために `extrafont` という
+パッケージを用います. まず最初に
+```
+install.packages("extrafont")
+extrafont::font_import(prompt=FALSE)
+```
+として読み込みます. 実際に使えるフォントは
+```
+extrafont::fonts()
+```
+で確認できます. セッションごとに
+```
+extrafont::loadfonts(quiet=TRUE)
+```
+を実行するとよいでしょう.
 
-私の作業環境(動作確認環境)は, 最後にまとめて表示しています。
+また, bookdown は utf-8 しか受け付けません。そのため windows ではうまく動かないかもしれません(未検証)。はやく mac か linux に移行しましょう.
+
+私の作業環境 (動作確認環境) は, 最後にまとめて表示しています。
 
 ### Download
 
-git cloneして持ってくるか, 右側のDownload Zipで持ってきてください:
+git clone して持ってくるか, 右側の Download Zip で持ってきてください:
 
 ```
 $ git clone git@github.com:kenjimyzk/bookdown_ja-template.git
@@ -106,19 +125,24 @@ RStudioを利用しているなら,BuildパネルでBuild Bookから選択して
 生成物は,`docs`ディレクトリに置かれるように設定してます。`.epub`と`.pdf`は単独ファイルで,それ以外はgitbook形式のファイルとなります。
 
 ## session info
-私の作業環境(動作確認環境)です.
+私の作業環境 (動作確認環境) です.
 ```{r}
 sessionInfo()
 ```
 
 ## 今後やりたいこと
-html の参考文献について日本語でのスタイルが上手く表記されていません.
+その1) html の参考文献について日本語でのスタイルが上手く表記されていません.
 jecon.bst のように和文文献と欧米文献を分類して, あいうえお順にしたいのですが, 現状ではできていません. csl について
 
 + http://docs.citationstyles.org/en/stable/specification.html
 + http://editor.citationstyles.org/visualEditor/
 + https://www.zotero.org/styles
 
-あたりで勉強して作りたいと思います.
+あたりで勉強して作りたいと思います. 
 
+その2) Docker で bookdown を動かしたいのです. 現在
 
+https://github.com/kenjimyzk/rstudio
+
+にあるのですが, 残念ながら texlive 2014 なので, このテンプレートは動きません. 
+動かすために texlive 2016 にしたいのですが, 今のところ保留です.

@@ -2,23 +2,11 @@
 
 # 章のタイトルをここに入力
 
-進捗どうですか?
-
-適当に編集してください。
-
-R Markdown and **knitr** [@xie2015; @lander__2015]
-
-@miya_ken_2015a
-
 ```{r, echo=FALSE}
+rm(list=ls())
 library(knitr)
 out_type <- opts_knit$get("rmarkdown.pandoc.to")
-if (out_type == "latex") {
-  opts_chunk$set(dev = 'cairo_pdf')
-}  else {
-  opts_chunk$set(dev = 'png')
-}
-out_type
+opts_chunk$set(warning=FALSE, message =FALSE)
 ```
 
 データ `cars` を用いて回帰分析\index{かいきぶんせき@回帰分析}を実行する. 
@@ -27,13 +15,30 @@ fm0<-lm(dist~speed, data=cars)
 fm1<-lm(dist~speed + I(speed^2), data=cars) 
 ```
 
-結果は以下のとおりである.
+結果は表 \@ref(tab:kable) のとおりである.
+```{r kable, results="asis"}
+if (!require(broom)){
+  install.packages("broom")
+  }
+library(broom)
+knitr::kable(tidy(summary(fm0)), booktabs = TRUE,
+  caption = '単回帰分析の結果'
+)
+```
 
-```{r, message=FALSE,echo=FALSE,results='asis'}
+結果は表 \@ref(tab:stargazer) のとおりである.
+
+```{r, results='asis',echo=FALSE,message=FALSE}
+if (!require(stargazer)){
+  install.packages("stargazer")
+  }
 library(stargazer)
 if (out_type == "latex") {
-  stargazer(fm0, fm1, header=FALSE, float=FALSE)
+  stargazer(fm0, fm1, title="stargazer",label="tab:stargazer",header=FALSE)
 } else {
-  stargazer(fm0, fm1, type="html")
+  stargazer(fm0, fm1, title="(#tab:stargazer) stargazer", type="html")
   }
 ```
+
+
+
