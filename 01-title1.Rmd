@@ -1,6 +1,6 @@
 \mainmatter
 
-# 章のタイトルをここに入力
+# 表について
 
 ```{r, echo=FALSE}
 rm(list=ls())
@@ -34,9 +34,13 @@ if (!require(stargazer)){
   }
 library(stargazer)
 if (out_type == "latex") {
-  stargazer(fm0, fm1, title="stargazer",label="tab:stargazer",header=FALSE)
+  stargazer(fm0, fm1, title="stargazer",label="tab:stargazer",
+            covariate.labels = c("速度", "速度の自乗","定数項"),
+            dep.var.labels.include = FALSE, header=FALSE)
 } else {
-  stargazer(fm0, fm1, title="(#tab:stargazer) stargazer", type="html")
+  stargazer(fm0, fm1, title="(#tab:stargazer) stargazer",
+            covariate.labels = c("速度", "速度の自乗","定数項"),
+            dep.var.labels.include = FALSE, type="html")
   }
 ```
 

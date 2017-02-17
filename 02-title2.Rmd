@@ -26,10 +26,19 @@ curve(dnorm(x),xlim=c(-3,3),main="正規分布")
 ```{r lattice, fig.cap="latticeの日本語付きの図"}
 if (!require(lattice)){
   install.packages("lattice")
-  }
+}
 library(lattice)
 trellis.par.set(list(grid.pars = list(fontfamily = 'IPAexGothic')))
-xyplot(mpg~wt,group=factor(cyl),auto.key = TRUE, data=mtcars, xlab="重さ", ylab="燃費")
+myPanel <- function(x, y, xPos, yPos, ...) {
+   myLm <- lm(y ~ x)                   # Fit a linear regression line
+   panel.abline(myLm, col = "red")     # Add the regression line
+   panel.xyplot(x, y, ...)             # Draw the points
+   params <- paste(c("切片:", "傾き:"), # Parameters
+                   signif(coef(myLm), 3), collapse="\n")
+   ltext(xPos, yPos, params, cex = .8) # Add text to plot
+ }
+ xyplot( mpg ~ wt | factor(cyl), data = mtcars, panel = myPanel, pch = 16,
+   xPos = 4.5, yPos = 30)
 ```
 
 ## ggplot2 
