@@ -23,7 +23,8 @@ bookdown::gitbook:
 # pdf形式の設定
 # 細かい設定内容はpramble.texを参照
 bookdown::pdf_book:
-  pandoc_args: --top-level-division=chapter
+#  pandoc_args: --top-level-division=chapter
+  pandoc_args: --chapters
   includes:
     in_header: preamble.tex
     after_body: afterbody.tex

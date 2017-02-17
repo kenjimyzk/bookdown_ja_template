@@ -18,7 +18,7 @@ fm1<-lm(dist~speed + I(speed^2), data=cars)
 結果は表 \@ref(tab:kable) のとおりである.
 ```{r kable, results="asis"}
 if (!require(broom)){
-  install.packages("broom")
+  install.packages("broom", repos='http://cran.us.r-project.org')
   }
 library(broom)
 knitr::kable(tidy(summary(fm0)), booktabs = TRUE,
@@ -30,7 +30,7 @@ knitr::kable(tidy(summary(fm0)), booktabs = TRUE,
 
 ```{r, results='asis',echo=FALSE,message=FALSE}
 if (!require(stargazer)){
-  install.packages("stargazer")
+  install.packages("stargazer", repos='http://cran.us.r-project.org')
   }
 library(stargazer)
 if (out_type == "latex") {

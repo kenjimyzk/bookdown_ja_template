@@ -25,7 +25,7 @@ curve(dnorm(x),xlim=c(-3,3),main="正規分布")
 
 ```{r lattice, fig.cap="latticeの日本語付きの図"}
 if (!require(lattice)){
-  install.packages("lattice")
+  install.packages("lattice", repos='http://cran.us.r-project.org')
 }
 library(lattice)
 trellis.par.set(list(grid.pars = list(fontfamily = 'IPAexGothic')))
@@ -50,7 +50,7 @@ ggplot2 については @wickham_ggplot2:_2016-1 を参照されたい.[^2]
 
 ```{r ggplot2, fig.cap="ggplot2の日本語付きの図"}
 if (!require(ggplot2)){
-  install.packages("ggplot2")
+  install.packages("ggplot2", repos='http://cran.us.r-project.org')
   }
 library(ggplot2)
 theme_set( theme_bw( base_family= "IPAexGothic"))
