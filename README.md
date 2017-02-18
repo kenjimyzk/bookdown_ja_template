@@ -1,7 +1,7 @@
 # bookdown minimal template
 
 This is a bookdown template for Japanese language. 
-This is forked from  [kazuten/bookdown_ja_template](https://github.com/kazuten/bookdown_ja_template) repository. 
+This is forked from  [kazutan/bookdown_ja_template](https://github.com/kazutan/bookdown_ja_template) repository. 
 
 
 ## modified points
