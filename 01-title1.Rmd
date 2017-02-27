@@ -5,7 +5,7 @@
 ```{r, echo=FALSE}
 rm(list=ls())
 library(knitr)
-out_type <- opts_knit$get("rmarkdown.pandoc.to")
+# out_type <- opts_knit$get("rmarkdown.pandoc.to")
 opts_chunk$set(warning=FALSE, message =FALSE)
 ```
 
@@ -33,7 +33,7 @@ if (!require(stargazer)){
   install.packages("stargazer", repos='http://cran.us.r-project.org')
   }
 library(stargazer)
-if (out_type == "latex") {
+if (knitr:::is_latex_output()) {
   stargazer(fm0, fm1, title="stargazer",label="tab:stargazer",
             covariate.labels = c("速度", "速度の自乗","定数項"),
             dep.var.labels.include = FALSE, header=FALSE)
@@ -44,5 +44,9 @@ if (out_type == "latex") {
   }
 ```
 
+\begin{equation}
+y_t=\alpha + \beta x_t + u_t (\#eq:1)
+\end{equation}
 
+数式 \@ref(eq:1) である.
 
