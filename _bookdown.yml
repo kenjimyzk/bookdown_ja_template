@@ -8,7 +8,6 @@ output_dir: docs
 rmd_files: ["index.Rmd", "01-title1.Rmd", "02-title2.Rmd", "06-references.Rmd"]
 # 詳しくは公式ドキュメントを参照してください
 
-  
 language:
   label:
     fig: '図 '
