@@ -8,7 +8,7 @@ output:
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
-monofont: "Source Code Pro Light"
+# monofont: "Source Code Pro Light"
 bibliography: template.bib
 biblio-style: jeconunicode
 link-citations: yes
