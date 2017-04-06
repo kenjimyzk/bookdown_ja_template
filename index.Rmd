@@ -4,14 +4,16 @@ author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
-  bookdown::gitbook_book
+  bookdown::epub_book
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
+# monofont: "Source Code Pro Light"
 bibliography: template.bib
 biblio-style: jeconunicode
 link-citations: yes
-# csl: miyazakikenji.csl
+# csl: apa-jp_JSAM.csl
+lang: ja-JP
 # github-repo: (your-github-repository)
 description: "This is a description. Please wrote a abstract this contents. "
 ---
@@ -140,7 +142,7 @@ jecon.bst のように和文文献と欧米文献を分類して, あいうえ�
 
 あたりで勉強して作りたいと思います. 
 
-その2) Docker で bookdown を動かしたいのです. 現在
+その2) Docker で bookdown を動かしたいです. 現在
 
 https://github.com/kenjimyzk/rstudio
 

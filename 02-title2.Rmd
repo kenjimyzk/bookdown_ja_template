@@ -8,9 +8,7 @@ opts_chunk$set(warning=FALSE, message =FALSE)
 library(extrafont)
 loadfonts(quiet=TRUE)
 ```
-グラフィクス全般については @murrell_r_2011 を参照されたい.[^1] 
-
-[^1]: 初版であるが翻訳されている [@murrell_r_2009].
+グラフィクス全般については @murrell_r_2011 を参照されたい.^[初版であるが翻訳されている [@murrell_r_2009].]
 
 ## 基本グラフィクス
 日本語フォントとして `IPAexGothic` を指定して, 図 \@ref(fig:base) となる.
@@ -44,9 +42,7 @@ myPanel <- function(x, y, xPos, yPos, ...) {
 ## ggplot2 
 パッケージ ggplot2\index{ggplot2} を用いても日本語対応が可能で, 図 \@ref(fig:ggplot2) となる.
 
-ggplot2 については @wickham_ggplot2:_2016-1 を参照されたい.[^2] 
-
-[^2]: 初版であるが翻訳されている [@wickham_2012].
+ggplot2 については @wickham_ggplot2:_2016-1 を参照されたい.^[初版であるが翻訳されている [@wickham_2012].]
 
 ```{r ggplot2, fig.cap="ggplot2の日本語付きの図"}
 if (!require(ggplot2)){
