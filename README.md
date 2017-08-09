@@ -9,7 +9,7 @@ This is forked from  [kazutan/bookdown_ja_template](https://github.com/kazutan/b
 - set "latex_engine: xelatex"
 - set "output_dir" to "docs"
 - set "pandoc args" for Japanese heading
-- set "bxjsarticle" for Japanese pdf book
+- set "bxjsbook" for Japanese pdf book
 - set "upbibbtex" for Japanese reference
 - set "upmeneex" for Japanese index
 
