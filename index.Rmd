@@ -4,7 +4,7 @@ author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output:
-  bookdown::epub_book
+  bookdown::gitbook
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
 geometry: no
