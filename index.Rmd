@@ -3,11 +3,9 @@ title: "book_title"
 author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output:
-  bookdown::gitbook
 documentclass: bxjsbook
 classoption: ja=standard, xelatex
-geometry: no
+# geometry: no
 # monofont: "Source Code Pro Light"
 bibliography: template.bib
 biblio-style: jeconunicode
@@ -15,9 +13,10 @@ link-citations: yes
 # csl: apa-jp_JSAM.csl
 lang: ja-JP
 # github-repo: (your-github-repository)
-description: "This is a description. Please wrote a abstract this contents. "
+# description: "This is a description. Please wrote a abstract this contents. "
 ---
-# book_title {-}
+
+# はじめに {-}
 
 これは https://github.com/kazutan/bookdown_ja_template/ をフォークしたものです.
 私が改変した文章の句点は半角ピリオドになっております.
@@ -43,11 +42,8 @@ Knitr, rmarkdown, bookdownのパッケージがデータのレンダリングに
 ggplot2逆引き記事内にて使用するパッケージも必要となります。おそらくggplot2パッケージぐらいで大丈夫だと思いますが, 面倒でしたらtidyverseパッケージを導入してください。これをインストールするとHadleyverseなパッケージ群が自動的にインストールされます。
 
 オリジナルと違い, pdf book を日本語できちんとpdf book を作りたいので, マシンにtex環境が不可欠です.
-
-https://texwiki.texjp.org/?TeX入手法
-
-にあるように色々なtex環境がありますが texlive が最適です.
-現在の最新版 2016 でないとスタイルファイル **bxjsbook** やユニコードに対応した索引作成ソフト **upmendex**  が使えません.
+色々なtex環境がありますが texlive が最適です.
+2016 以降でないとスタイルファイル **bxjsbook** やユニコードに対応した索引作成ソフト **upmendex**  が使えません.
 
 bookdown は texlive で参考文献や索引を **latexmk** を通じて作成します.
 latexmk は texlive に同包していますが, 設定ファイル `.latexmkrc` をホームディレクトリに置く必要があります. わたしの設定ファイルは以下です:
@@ -117,10 +113,11 @@ bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book")
 ```
 - pdf形式: 以下のコードを実行
 ```
+options(tinytex.latexmk.emulation = FALSE)
 bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
 ```
 
-RStudioを利用しているなら,BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。
+RStudioを利用しているなら,BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。なお, `pdf_book` の生成はうまくいかないので注意されたい。
 
 ### 生成物の場所
 
@@ -133,7 +130,7 @@ sessionInfo()
 ```
 
 ## 今後やりたいこと
-その1) html の参考文献について日本語でのスタイルが上手く表記されていません.
+html の参考文献について日本語でのスタイルが上手く表記されていません.
 jecon.bst のように和文文献と欧米文献を分類して, あいうえお順にしたいのですが, 現状ではできていません. csl について
 
 + http://docs.citationstyles.org/en/stable/specification.html
@@ -142,9 +139,3 @@ jecon.bst のように和文文献と欧米文献を分類して, あいうえ�
 
 あたりで勉強して作りたいと思います. 
 
-その2) Docker で bookdown を動かしたいです. 現在
-
-https://github.com/kenjimyzk/rstudio
-
-にあるのですが, 残念ながら texlive 2014 なので, このテンプレートは動きません. 
-動かすために texlive 2016 にしたいのですが, 今のところ保留です.

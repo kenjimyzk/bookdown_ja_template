@@ -1,23 +1,10 @@
+delete_merged_file: true
 #書籍ファイル名
-book_filename: "book_filename"
+#book_filename: "book"
 #チャプターの枕詞
-# chapter_name: "chapter: "
+#chapter_name: "chapter: "
 #出力先の指定。docsに指定しています
 output_dir: docs
 #使用するRmdファイル群。指定しなければすべてのRmdを持ってきます
-rmd_files: ["index.Rmd", "01-title1.Rmd", "02-title2.Rmd", "06-references.Rmd"]
+#rmd_files: ["index.Rmd", "01-title1.Rmd", "02-title2.Rmd", "06-references.Rmd"]
 # 詳しくは公式ドキュメントを参照してください
-
-language:
-  label:
-    fig: '図 '
-    tab: '表 '
-    eq: '式 '
-    thm: '定理 '
-    lem: '補題 '
-    def: '定義 '
-    cor: '系 '
-    prp: '命題 '
-    ex: '例 '
-    proof: '証明 '
-    remark: '注意 '
