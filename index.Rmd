@@ -45,8 +45,17 @@ ggplot2逆引き記事内にて使用するパッケージも必要となりま�
 色々なtex環境がありますが texlive が最適です.
 2016 以降でないとスタイルファイル **bxjsbook** やユニコードに対応した索引作成ソフト **upmendex**  が使えません.
 
-bookdown は texlive で参考文献や索引を **latexmk** を通じて作成します.
-latexmk は texlive に同包していますが, 設定ファイル `.latexmkrc` をホームディレクトリに置く必要があります. わたしの設定ファイルは以下です:
+bookdown で pdf book を作成する際, デフォルトでは パッケージ `tinytex` 経由でコンパイルします.
+そのさい, どうしても `bibtex` で参考文献リストを作成しています.
+それを避けるために, 実行前に
+```
+options(tinytex.latexmk.emulation = FALSE)
+```
+を入力します. そうしてtexlive に付属する  **latexmk** を用いて
+参考文献や索引を作成します.
+
+設定ファイル `.latexmkrc` をホームディレクトリに置くだけだとうまくいかず,
+プロジェクトフォルダ内にコピーしておく必要があります. わたしの設定ファイルは以下です:
 ```
 $latex  = 'platex -kanji=utf8 -synctex=1';
 $bibtex = 'upbibtex -kanji-internal=uptex';
