@@ -72,8 +72,7 @@ bibtex のスタイルファイルは
 http://shirotakeda.org/ja/tex-ja/jecon-ja.html
 
 にある `jecon.bst` のユニコード版 `jecon_unicode.bst` を使います.
-ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております. なお少しだけ修正しております (Pull Request 中).
-
+ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております. なお少しだけ修正しております 
 日本語のフォントに埋め込み可能な IPAexフォントにしています. 
 IPA フォントとの違いは欧米フォントがプロポーシャルになってることです. 以下からダウンロードしてください。
 
