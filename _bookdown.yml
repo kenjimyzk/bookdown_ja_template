@@ -1,6 +1,6 @@
 delete_merged_file: true
 #書籍ファイル名
-#book_filename: "book"
+book_filename: "book"
 #チャプターの枕詞
 #chapter_name: "chapter: "
 #出力先の指定。docsに指定しています

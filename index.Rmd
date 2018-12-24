@@ -3,14 +3,13 @@ title: "book_title"
 author: "author_name"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-documentclass: bxjsbook
-classoption: ja=standard, xelatex
+documentclass: bxjsreport
+classoption: ja=standard, xelatex, base=12pt
 # geometry: no
-# monofont: "Source Code Pro Light"
+# monofont: "Source Code P  ro Light"
 bibliography: template.bib
 biblio-style: jeconunicode
 link-citations: yes
-# csl: apa-jp_JSAM.csl
 lang: ja-JP
 # github-repo: (your-github-repository)
 # description: "This is a description. Please wrote a abstract this contents. "
@@ -57,7 +56,7 @@ options(tinytex.latexmk.emulation = FALSE)
 設定ファイル `.latexmkrc` をホームディレクトリに置くだけだとうまくいかず,
 プロジェクトフォルダ内にコピーしておく必要があります. わたしの設定ファイルは以下です:
 ```
-$latex  = 'platex -kanji=utf8 -synctex=1';
+$latex  = 'uplatex -kanji=utf8 -synctex=1';
 $bibtex = 'upbibtex -kanji-internal=uptex';
 $dvipdf  = 'dvipdfmx %O -o %D %S';
 $makeindex = 'upmendex %O -o %D %S';
@@ -72,7 +71,8 @@ bibtex のスタイルファイルは
 http://shirotakeda.org/ja/tex-ja/jecon-ja.html
 
 にある `jecon.bst` のユニコード版 `jecon_unicode.bst` を使います.
-ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております. なお少しだけ修正しております 
+ただ YAML がうまく  jecon_unicode.bst を読み込んでくれないので `jeconunicode.bst` にファイル名を変更しております. あと少しだけ修正しております.
+
 日本語のフォントに埋め込み可能な IPAexフォントにしています. 
 IPA フォントとの違いは欧米フォントがプロポーシャルになってることです. 以下からダウンロードしてください。
 
@@ -125,7 +125,7 @@ options(tinytex.latexmk.emulation = FALSE)
 bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
 ```
 
-RStudioを利用しているなら,BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。なお, `pdf_book` の生成はうまくいかないので注意されたい。
+RStudioを利用しているなら, BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。しかし `pdf_book` の生成はうまくいかないので注意されたい。
 
 ### 生成物の場所
 

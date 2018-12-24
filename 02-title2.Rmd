@@ -19,7 +19,7 @@ curve(dnorm(x),xlim=c(-3,3),main="正規分布")
 ```
 
 ## lattice
-パッケージ lattice\index{lattice} を用いても日本語対応が可能で, 図 \@ref(fig:lattice) となる. lattice については @sarkar_2012 および その翻訳書 @sarkar_2012 を参照されたい.
+パッケージ lattice\index{lattice} を用いても日本語対応が可能で, 図 \@ref(fig:lattice) となる. lattice については @sarkar_lattice:_2008-1 および その翻訳書 @sarkar_2012 を参照されたい.
 
 ```{r lattice, fig.cap="latticeの日本語付きの図"}
 if (!require(lattice)){

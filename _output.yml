@@ -9,7 +9,6 @@ bookdown::gitbook:
 # 細かい設定内容はpramble.texを参照
 bookdown::pdf_book:
   pandoc_args: --top-level-division=chapter
-#  pandoc_args: --chapters
   includes:
     in_header: preamble.tex
     after_body: afterbody.tex
@@ -18,5 +17,3 @@ bookdown::pdf_book:
   latex_engine: xelatex
   dev: "cairo_pdf"
   citation_package: natbib
-# epub関連の設定
-bookdown::epub_book:
