@@ -5,14 +5,15 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: bxjsreport
 classoption: ja=standard, xelatex, base=12pt
-# geometry: no
-# monofont: "Source Code P  ro Light"
+#geometry: no
+#monofont: "Source Code P  ro Light"
 bibliography: template.bib
 biblio-style: jeconunicode
+csl: miyazakikenji.csl
 link-citations: yes
-lang: ja-JP
-# github-repo: (your-github-repository)
-# description: "This is a description. Please wrote a abstract this contents. "
+#lang: ja-JP
+#github-repo: (your-github-repository)
+#description: "This is a description. Please wrote a abstract this contents. "
 ---
 
 # はじめに {-}
@@ -125,7 +126,12 @@ options(tinytex.latexmk.emulation = FALSE)
 bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book")
 ```
 
-RStudioを利用しているなら, BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。しかし `pdf_book` の生成はうまくいかないので注意されたい。
+RStudioを利用しているなら, BuildパネルでBuild Bookから選択してください。もしBuildタブがRStudioで表示されない場合,一度RStudioを終了させてもう一度開いてください。しかし `pdf_book` の生成はここままではうまくいかない. 以下のチャンクを作成する必要がある.
+
+```{r}
+options(tinytex.latexmk.emulation = FALSE)
+```
+
 
 ### 生成物の場所
 

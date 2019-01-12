@@ -26,27 +26,46 @@ knitr::kable(tidy(summary(fm0)), booktabs = TRUE,
 )
 ```
 
-結果は表 \@ref(tab:stargazer) のとおりである.
 
-```{r, results='asis',echo=FALSE,message=FALSE}
-if (!require(stargazer)){
-  install.packages("stargazer", repos='http://cran.us.r-project.org')
+
+`texreg` の結果は表 \@ref(tab:texreg) のとおりである.
+
+```{r, results='asis',message=FALSE}
+if (!require(texreg)){
+  install.packages("texreg", repos='http://cran.us.r-project.org')
   }
-library(stargazer)
-if (knitr:::is_latex_output()) {
-  stargazer(fm0, fm1, title="stargazer",label="tab:stargazer",
-            covariate.labels = c("速度", "速度の自乗","定数項"),
-            dep.var.labels.include = FALSE, header=FALSE)
-} else {
-  stargazer(fm0, fm1, title="(#tab:stargazer) stargazer",
-            covariate.labels = c("速度", "速度の自乗","定数項"),
-            dep.var.labels.include = FALSE, type="html")
+library(texreg)
+bookdown_texreg <- function(lists,names,caption,label) {
+  if (knitr:::is_latex_output()) {
+    texreg(lists, caption=caption,label=label,
+           custom.coef.names = names,
+          caption.above=TRUE)
+    } else {
+    html_caption <- paste0("(#",label,"): ",caption)
+    htmlreg(lists, caption=html_caption,
+            custom.coef.names = names,
+            doctype=FALSE,caption.above=TRUE)
   }
+}
+lists <- list(fm0, fm1)
+names <- c("速度", "速度の自乗","定数項")
+caption <- "texreg"
+label <- "tab:texreg"
+bookdown_texreg(lists,names,caption,label)
 ```
 
 \begin{equation}
 y_t=\alpha + \beta x_t + u_t (\#eq:1)
 \end{equation}
 
-数式 \@ref(eq:1) である.
+数式 \@ref(eq:1) である. このソースコードは以下である.
+
+```
+\begin{equation}
+y_t=\alpha + \beta x_t + u_t (\#eq:1)
+\end{equation}
+```
+
+`"(#eq:1)"` でなく `(\#eq:1)` となっていることに注意されたい.
+
 
